@@ -50,10 +50,21 @@ latlng_pos.append([meen_2[0], meen_2[1]])
 
 dist_offset, angle_offset = calc_offset(latlng_pos, map_pos)
 
+print("Distance Offset : " + str(dist_offset))
+print("Angle Offset : " + str(angle_offset))
+print("Average1 : " + str(meen_1))
+print("Average2 : " + str(meen_2))
+
 with open("offset.txt", 'w') as f:
    f.write("Distance Offset\nAngle Offset\n")
    f.write("------------------------------\n")
    f.write(str(dist_offset) + "\n")
    f.write(str(angle_offset) + "\n")
+   f.write("------------------------------\n")
+   f.write("------------------------------\n")
+   f.write("Average1\nAverage2\n")
+   f.write("------------------------------\n")
+   f.write(str(meen_1) + "\n")
+   f.write(str(meen_2) + "\n")
 
 
