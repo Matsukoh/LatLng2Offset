@@ -42,18 +42,18 @@ with open(map_data, 'r') as f:
         map_pos.append(row)
 
 
-meen_1 = df_1.mean().compute()
-meen_2 = df_2.mean().compute()
+ave_1 = df_1.mean().compute()
+ave_2 = df_2.mean().compute()
 
-latlng_pos.append([meen_1[0], meen_1[1]])
-latlng_pos.append([meen_2[0], meen_2[1]])
+latlng_pos.append([ave_1[0], ave_1[1]])
+latlng_pos.append([ave_2[0], ave_2[1]])
 
 dist_offset, angle_offset = calc_offset(latlng_pos, map_pos)
 
 print("Distance Offset : " + str(dist_offset))
 print("Angle Offset : " + str(angle_offset))
-print("Average1 : " + str(meen_1))
-print("Average2 : " + str(meen_2))
+print("Average1 : \n" + str(ave_1))
+print("Average2 : \n" + str(ave_2))
 
 with open("offset.txt", 'w') as f:
    f.write("Distance Offset\nAngle Offset\n")
@@ -62,9 +62,11 @@ with open("offset.txt", 'w') as f:
    f.write(str(angle_offset) + "\n")
    f.write("------------------------------\n")
    f.write("------------------------------\n")
-   f.write("Average1\nAverage2\n")
+   f.write("Average\n")
    f.write("------------------------------\n")
-   f.write(str(meen_1) + "\n")
-   f.write(str(meen_2) + "\n")
+   f.write("lat, lng\n")
+   f.write(str(ave_1[0]) + "," + str(ave_1[1]) + "\n")
+   f.write(str(ave_2[0]) + "," + str(ave_2[1]) + "\n")
+
 
 
